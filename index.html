@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>로또 번호 생성</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script>
+        function generateLottoNumbers() {
+            var numbers = [];
+            while (numbers.length < 6) {
+                var randomNumber = Math.floor(Math.random() * 45) + 1;
+                if (numbers.indexOf(randomNumber) === -1) {
+                    numbers.push(randomNumber);
+                }
+            }
+            numbers.sort(function(a, b) {
+                return a - b;
+            });
+            document.getElementById("lottoNumbers").innerHTML = numbers.join(", ");
+        }
+
+    </script>
+</head>
+<body>
+    <h1>로또 번호</h1>
+    <button onclick="generateLottoNumbers()">번호생성</button>
+    <p id="lottoNumbers"></p>
+</body>
+</html>
